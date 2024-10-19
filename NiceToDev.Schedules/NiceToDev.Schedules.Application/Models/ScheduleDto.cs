@@ -1,8 +1,10 @@
-﻿namespace NiceToDev.Schedules.Domain.Entities
+﻿using NiceToDev.Schedules.Domain.Entities;
+
+namespace NiceToDev.Schedules.Application.Models
 {
-    public class Schedule
+    public class ScheduleDto
     {
-        public Schedule(string name)
+        public ScheduleDto(string name)
         {
             Name = name;
         }

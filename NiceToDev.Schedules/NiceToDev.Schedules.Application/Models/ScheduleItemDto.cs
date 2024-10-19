@@ -1,8 +1,8 @@
-﻿namespace NiceToDev.Schedules.Domain.Entities
+﻿namespace NiceToDev.Schedules.Application.Models
 {
-    public class ScheduleItem
+    internal class ScheduleItemDto
     {
-        public ScheduleItem(Schedule schedule, string name)
+        public ScheduleItemDto(ScheduleDto schedule, string name)
         {
             Schedule = schedule;
             ScheduleId = schedule.Id;
@@ -11,7 +11,7 @@
 
         public int Id { get; set; }
         public int ScheduleId { get; set; }
-        public Schedule Schedule { get; set; }
+        public ScheduleDto Schedule { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }
