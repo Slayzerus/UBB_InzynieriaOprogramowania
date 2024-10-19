@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NiceToDev.Schedules.Database\NiceToDev.Schedules.Database.csproj" />
+    <ProjectReference Include="..\NiceToDev.Schedules.Domain\NiceToDev.Schedules.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
