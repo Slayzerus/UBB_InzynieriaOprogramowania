@@ -1,6 +1,6 @@
 ﻿namespace NiceToDev.Schedules.Application.Models
 {
-    internal class ScheduleItemDto
+    public class ScheduleItemDto
     {
         public ScheduleItemDto(ScheduleDto schedule, string name)
         {

@@ -4,6 +4,7 @@ using NiceToDev.Schedules.Application.Models;
 using NiceToDev.Schedules.Database;
 using NiceToDev.Schedules.Domain.Entities;
 using NiceToDev.Schedules.Domain.Interfaces;
+using System.Security.Cryptography;
 
 namespace NiceToDev.Schedules.Application.Services
 {
@@ -22,32 +23,35 @@ namespace NiceToDev.Schedules.Application.Services
             _scheduleRepository.Add(schedule);
         }
 
-        public void Update(Schedule schedule)
+        public void Update(ScheduleDto scheduleDto)
         {
-            _scheduleContext.Schedules.Update(schedule);
-            _scheduleContext.SaveChanges();
+            var schedule = scheduleDto.Adapt<Schedule>();
+            _scheduleRepository.Update(schedule);           
+            
         }
 
-        public void AddItem(ScheduleItem item)
+        public void AddItem(ScheduleItemDto itemDto)
         {
-            _scheduleContext.ScheduleItems.Add(item);
-            _scheduleContext.SaveChanges();
+            var item = itemDto.Adapt<ScheduleItem>();
+            _scheduleRepository.AddItem(item);
         }
 
-        public void UpdateItem(ScheduleItem item)
+        public void UpdateItem(ScheduleItemDto itemDto)
         {
-            _scheduleContext.ScheduleItems.Update(item);
-            _scheduleContext.SaveChanges();
+            var item = itemDto.Adapt<ScheduleItem>();
+            _scheduleRepository.UpdateItem(item);
         }
 
-        public Schedule? GetSchedule(int id)
+        public ScheduleDto? GetSchedule(int id)
         {
-            return _scheduleContext.Schedules.Where(x => x.Id == id).Include(x => x.Items).FirstOrDefault();
+            Schedule? schedule = _scheduleRepository.GetSchedule(id);
+            return schedule.Adapt<ScheduleDto?>();
         }
 
-        public List<Schedule> GetScheduleList()
+        public List<ScheduleDto> GetScheduleList()
         {
-            return _scheduleContext.Schedules.ToList();
+            List<Schedule> schedule = _scheduleRepository.GetScheduleList();
+            return schedule.Adapt<List<ScheduleDto>>();
         }
     }
 }
