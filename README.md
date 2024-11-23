@@ -20,4 +20,6 @@ Wymagania funkcjonalne:
 Potencjalne ryzyka:
 
 
+
 Diagram aplikacji:
+[Uploading IO.drawio…]()
