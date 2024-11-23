@@ -3,7 +3,7 @@ using NiceToDev.Schedules.Application.Interfaces;
 using NiceToDev.Schedules.Application.Services;
 using NiceToDev.Schedules.Database;
 using NiceToDev.Schedules.Domain.Interfaces;
-using NiceToDev.Schedules.Interfaces.Repositories;
+using NiceToDev.Schedules.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

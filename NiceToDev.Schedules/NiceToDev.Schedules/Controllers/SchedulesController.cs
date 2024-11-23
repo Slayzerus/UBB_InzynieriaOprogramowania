@@ -4,7 +4,9 @@ using NiceToDev.Schedules.Application.Models;
 
 namespace NiceToDev.Schedules.Controllers
 {
-    public class SchedulesController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class SchedulesController : ControllerBase
     {
         private readonly IScheduleService _scheduleService;
 
@@ -13,42 +15,51 @@ namespace NiceToDev.Schedules.Controllers
             _scheduleService = scheduleService;
         }
 
+        // Route: GET api/schedules
         [HttpGet]
-        [HttpGet("list")]
         public IActionResult List()
         {
             return Ok();
         }
 
+        // Route: GET api/schedules/list
+        [HttpGet("list")]
+        public IActionResult ListDetailed()
+        {
+            return Ok();
+        }
+
+        // Route: GET api/schedules/{id}
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             return Ok();
         }
 
-        [HttpPost]
-        [Route("schedule")]
+        // Route: POST api/schedules/schedule
+        [HttpPost("schedule")]
         public IActionResult AddSchedule([FromBody] ScheduleDto scheduleDto)
         {
-            return Ok();
+            int id = _scheduleService.AddSchedule(scheduleDto);
+            return Ok(id);
         }
 
-        [HttpPut]
-        [Route("schedule")]
+        // Route: PUT api/schedules/schedule
+        [HttpPut("schedule")]
         public IActionResult UpdateSchedule([FromBody] ScheduleDto scheduleDto)
         {
             return Ok();
         }
 
-        [HttpPost]
-        [Route("schedule/{scheduleId}/item")]
+        // Route: POST api/schedules/schedule/{scheduleId}/item
+        [HttpPost("schedule/{scheduleId}/item")]
         public IActionResult AddItem(int scheduleId, [FromBody] ScheduleItemDto scheduleItemDto)
         {
             return Ok();
         }
 
-        [HttpPut]
-        [Route("schedule/{scheduleId}/item")]
+        // Route: PUT api/schedules/schedule/{scheduleId}/item
+        [HttpPut("schedule/{scheduleId}/item")]
         public IActionResult UpdateItem(int scheduleId, [FromBody] ScheduleItemDto scheduleItemDto)
         {
             return Ok();

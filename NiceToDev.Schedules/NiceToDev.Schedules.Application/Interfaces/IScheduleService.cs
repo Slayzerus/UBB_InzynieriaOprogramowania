@@ -1,6 +1,4 @@
-﻿using Mapster;
-using NiceToDev.Schedules.Application.Models;
-using NiceToDev.Schedules.Domain.Entities;
+﻿using NiceToDev.Schedules.Application.Models;
 
 namespace NiceToDev.Schedules.Application.Interfaces
 {
@@ -10,25 +8,27 @@ namespace NiceToDev.Schedules.Application.Interfaces
         /// Method to add a schedule
         /// </summary>
         /// <param name="scheduleDto">Schedule object</param>
-        void Add(ScheduleDto scheduleDto);
+        /// <returns>Schedule identifier</returns>
+        int AddSchedule(ScheduleDto scheduleDto);
 
         /// <summary>
         /// Method to update a schedule
         /// </summary>
         /// <param name="scheduleDto">Schedule object</param>
-        void Update(ScheduleDto scheduleDto);
+        void UpdateSchedule(ScheduleDto scheduleDto);
 
         /// <summary>
         /// Method to add an item to a schedule
         /// </summary>
         /// <param name="itemDto">Schedule item object</param>
-        void AddItem(ScheduleItemDto itemDto);
+        /// <returns>Schedule item identifier</returns>
+        int AddScheduleItem(ScheduleItemDto itemDto);
 
         /// <summary>
         /// Method to update an item in a schedule
         /// </summary>
         /// <param name="itemDto">Schedule item object</param>
-        void UpdateItem(ScheduleItemDto itemDto);
+        void UpdateScheduleItem(ScheduleItemDto itemDto);
 
         /// <summary>
         /// Method to get a schedule by id

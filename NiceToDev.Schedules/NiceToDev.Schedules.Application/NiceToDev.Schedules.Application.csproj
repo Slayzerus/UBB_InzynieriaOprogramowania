@@ -12,7 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NiceToDev.Schedules.Domain\NiceToDev.Schedules.Domain.csproj" />
-    <ProjectReference Include="..\NiceToDev.Schedules.Interfaces\NiceToDev.Schedules.Interfaces.csproj" />
+    <ProjectReference Include="..\NiceToDev.Schedules.Infrastructure\NiceToDev.Schedules.Infrastructure.csproj" />
+    <ProjectReference Include="..\NiceToDev.Schedules.Interfaces\NiceToDev.Schedules.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

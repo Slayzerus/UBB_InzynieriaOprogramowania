@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NiceToDev.Schedules.Domain.Entities;
-using System.Security.Cryptography;
 
 namespace NiceToDev.Schedules.Database
 {
