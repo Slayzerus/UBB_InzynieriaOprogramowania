@@ -3,7 +3,7 @@ using NiceToDev.Schedules.Database;
 using NiceToDev.Schedules.Domain.Entities;
 using NiceToDev.Schedules.Domain.Interfaces;
 
-namespace NiceToDev.Schedules.Interfaces.Repositories
+namespace NiceToDev.Schedules.Infrastructure.Repositories
 {
     public class ScheduleRepository : IScheduleRepository
     {
@@ -20,7 +20,7 @@ namespace NiceToDev.Schedules.Interfaces.Repositories
         /// Method to add a schedule
         /// </summary>
         /// <param name="schedule">Schedule object</param>
-        public void Add(Schedule schedule)
+        public void AddSchedule(Schedule schedule)
         {
             _scheduleContext.Schedules.Add(schedule);
             _scheduleContext.SaveChanges();
@@ -30,7 +30,7 @@ namespace NiceToDev.Schedules.Interfaces.Repositories
         /// Method to update a schedule
         /// </summary>
         /// <param name="schedule">Schedule object</param>
-        public void Update(Schedule schedule)
+        public void UpdateSchedule(Schedule schedule)
         {
             _scheduleContext.Schedules.Update(schedule);
             _scheduleContext.SaveChanges();
@@ -40,7 +40,7 @@ namespace NiceToDev.Schedules.Interfaces.Repositories
         /// Method to add an item to a schedule
         /// </summary>
         /// <param name="item">Schedule item object</param>
-        public void AddItem(ScheduleItem item)
+        public void AddScheduleItem(ScheduleItem item)
         {
             _scheduleContext.ScheduleItems.Add(item);
             _scheduleContext.SaveChanges();
@@ -50,7 +50,7 @@ namespace NiceToDev.Schedules.Interfaces.Repositories
         /// Method to update an item in a schedule
         /// </summary>
         /// <param name="item">Schedule item object</param>
-        public void UpdateItem(ScheduleItem item)
+        public void UpdateScheduleItem(ScheduleItem item)
         {
             _scheduleContext.ScheduleItems.Update(item);
             _scheduleContext.SaveChanges();
@@ -70,7 +70,7 @@ namespace NiceToDev.Schedules.Interfaces.Repositories
         /// Method to get all schedules
         /// </summary>
         /// <returns>List of all schedules</returns>
-        public List<Schedule> GetAllSchedule()
+        public List<Schedule> GetAllSchedules()
         {
             return _scheduleContext.Schedules.ToList();
         }

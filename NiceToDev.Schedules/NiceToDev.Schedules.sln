@@ -5,13 +5,13 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiceToDev.Schedules", "NiceToDev.Schedules\NiceToDev.Schedules.csproj", "{E36861BA-9EC5-49DF-B6D9-9165E986AC89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiceToDev.Schedules.Database", "NiceToDev.Schedules.Database\NiceToDev.Schedules.Database.csproj", "{4EBA6942-47C4-4F0A-8900-16131672331D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiceToDev.Schedules.Database", "NiceToDev.Schedules.Database\NiceToDev.Schedules.Database.csproj", "{4EBA6942-47C4-4F0A-8900-16131672331D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiceToDev.Schedules.Interfaces", "NiceToDev.Schedules.Interfaces\NiceToDev.Schedules.Interfaces.csproj", "{BB657633-20EB-4679-ADAE-729B0E9830A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiceToDev.Schedules.Infrastructure", "NiceToDev.Schedules.Infrastructure\NiceToDev.Schedules.Infrastructure.csproj", "{BB657633-20EB-4679-ADAE-729B0E9830A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiceToDev.Schedules.Application", "NiceToDev.Schedules.Application\NiceToDev.Schedules.Application.csproj", "{526C0CE7-3AD3-455D-9D60-B9D866EFA185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiceToDev.Schedules.Application", "NiceToDev.Schedules.Application\NiceToDev.Schedules.Application.csproj", "{526C0CE7-3AD3-455D-9D60-B9D866EFA185}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiceToDev.Schedules.Domain", "NiceToDev.Schedules.Domain\NiceToDev.Schedules.Domain.csproj", "{643A682E-4463-47ED-8BE8-9A59EC9F77BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NiceToDev.Schedules.Domain", "NiceToDev.Schedules.Domain\NiceToDev.Schedules.Domain.csproj", "{643A682E-4463-47ED-8BE8-9A59EC9F77BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

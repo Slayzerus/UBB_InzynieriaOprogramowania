@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NiceToDev.Schedules.Application\NiceToDev.Schedules.Application.csproj" />
+    <ProjectReference Include="..\NiceToDev.Schedules.Infrastructure\NiceToDev.Schedules.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

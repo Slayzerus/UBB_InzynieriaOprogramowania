@@ -21,40 +21,44 @@ namespace NiceToDev.Schedules.Application.Services
         /// Method to add a schedule
         /// </summary>
         /// <param name="scheduleDto">Schedule object</param>
-        public void Add(ScheduleDto scheduleDto)
+        /// <returns>Schedule identifier</returns>
+        public int AddSchedule(ScheduleDto scheduleDto)
         {
             var schedule = scheduleDto.Adapt<Schedule>();
-            _scheduleRepository.Add(schedule);
+            _scheduleRepository.AddSchedule(schedule);
+            return schedule.Id;
         }
 
         /// <summary>
         /// Method to update a schedule
         /// </summary>
         /// <param name="scheduleDto">Schedule object</param>
-        public void Update(ScheduleDto scheduleDto)
+        public void UpdateSchedule(ScheduleDto scheduleDto)
         {
             var schedule = scheduleDto.Adapt<Schedule>();
-            _scheduleRepository.Update(schedule);
+            _scheduleRepository.UpdateSchedule(schedule);
         }
 
         /// <summary>
         /// Method to add an item to a schedule
         /// </summary>
         /// <param name="itemDto">Schedule item object</param>
-        public void AddItem(ScheduleItemDto itemDto)
+        /// <returns>Schedule item identifier</returns>
+        public int AddScheduleItem(ScheduleItemDto itemDto)
         {
             var item = itemDto.Adapt<ScheduleItem>();
-            _scheduleRepository.AddItem(item);
+            _scheduleRepository.AddScheduleItem(item);
+            return item.Id;
         }
 
         /// <summary>
         /// Method to update an item in a schedule
         /// </summary>
         /// <param name="itemDto">Schedule item object</param>
-        public void UpdateItem(ScheduleItemDto itemDto)
+        public void UpdateScheduleItem(ScheduleItemDto itemDto)
         {
             var item = itemDto.Adapt<ScheduleItem>();
-            _scheduleRepository.UpdateItem(item);
+            _scheduleRepository.UpdateScheduleItem(item);
         }
 
         /// <summary>
@@ -81,7 +85,7 @@ namespace NiceToDev.Schedules.Application.Services
         /// <returns>List of all schedules</returns>
         public List<ScheduleDto> GetAllSchedules()
         {
-            List<Schedule> scheduleDtos = _scheduleRepository.GetAllSchedule();
+            List<Schedule> scheduleDtos = _scheduleRepository.GetAllSchedules();
             return scheduleDtos.Adapt<List<ScheduleDto>>();
         }
 
