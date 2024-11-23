@@ -1,7 +1,6 @@
 ﻿using Mapster;
 using NiceToDev.Schedules.Application.Interfaces;
 using NiceToDev.Schedules.Application.Models;
-using NiceToDev.Schedules.Database;
 using NiceToDev.Schedules.Domain.Entities;
 using NiceToDev.Schedules.Domain.Interfaces;
 
@@ -16,38 +15,76 @@ namespace NiceToDev.Schedules.Application.Services
             _scheduleRepository = scheduleRepository;
         }
 
+        #region Methods
+
+        /// <summary>
+        /// Method to add a schedule
+        /// </summary>
+        /// <param name="scheduleDto">Schedule object</param>
         public void Add(ScheduleDto scheduleDto)
         {
             var schedule = scheduleDto.Adapt<Schedule>();
             _scheduleRepository.Add(schedule);
         }
 
-        public void Update(Schedule schedule)
+        /// <summary>
+        /// Method to update a schedule
+        /// </summary>
+        /// <param name="scheduleDto">Schedule object</param>
+        public void Update(ScheduleDto scheduleDto)
         {
-            _scheduleContext.Schedules.Update(schedule);
-            _scheduleContext.SaveChanges();
+            var schedule = scheduleDto.Adapt<Schedule>();
+            _scheduleRepository.Update(schedule);
         }
 
-        public void AddItem(ScheduleItem item)
+        /// <summary>
+        /// Method to add an item to a schedule
+        /// </summary>
+        /// <param name="itemDto">Schedule item object</param>
+        public void AddItem(ScheduleItemDto itemDto)
         {
-            _scheduleContext.ScheduleItems.Add(item);
-            _scheduleContext.SaveChanges();
+            var item = itemDto.Adapt<ScheduleItem>();
+            _scheduleRepository.AddItem(item);
         }
 
-        public void UpdateItem(ScheduleItem item)
+        /// <summary>
+        /// Method to update an item in a schedule
+        /// </summary>
+        /// <param name="itemDto">Schedule item object</param>
+        public void UpdateItem(ScheduleItemDto itemDto)
         {
-            _scheduleContext.ScheduleItems.Update(item);
-            _scheduleContext.SaveChanges();
+            var item = itemDto.Adapt<ScheduleItem>();
+            _scheduleRepository.UpdateItem(item);
         }
 
-        public Schedule? GetSchedule(int id)
+        /// <summary>
+        /// Method to get a schedule by id
+        /// </summary>
+        /// <param name="id">Schedule identifier</param>
+        /// <returns>Schedule object</returns>
+        public ScheduleDto? GetScheduleById(int id)
         {
-            return _scheduleContext.Schedules.Where(x => x.Id == id).Include(x => x.Items).FirstOrDefault();
+            Schedule? schedule = _scheduleRepository.GetScheduleById(id);
+            if (schedule != null)
+            {
+                return schedule.Adapt<ScheduleDto>();
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public List<Schedule> GetScheduleList()
+        /// <summary>
+        /// Method to get a list of all schedules
+        /// </summary>
+        /// <returns>List of all schedules</returns>
+        public List<ScheduleDto> GetAllSchedules()
         {
-            return _scheduleContext.Schedules.ToList();
+            List<Schedule> scheduleDtos = _scheduleRepository.GetAllSchedule();
+            return scheduleDtos.Adapt<List<ScheduleDto>>();
         }
+
+        #endregion Methods
     }
 }
