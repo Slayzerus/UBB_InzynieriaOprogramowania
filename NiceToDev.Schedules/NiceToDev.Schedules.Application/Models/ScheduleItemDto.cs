@@ -2,6 +2,11 @@
 {
     public class ScheduleItemDto
     {
+        public ScheduleItemDto()
+        {
+            
+        }
+
         public ScheduleItemDto(ScheduleDto schedule, string name)
         {
             Schedule = schedule;

@@ -9,10 +9,12 @@ namespace NiceToDev.Schedules.Controllers
     public class SchedulesController : ControllerBase
     {
         private readonly IScheduleService _scheduleService;
+        private readonly ILogger<SchedulesController> _logger;
 
-        public SchedulesController(IScheduleService scheduleService)
+        public SchedulesController(IScheduleService scheduleService, ILogger<SchedulesController> logger)
         {
             _scheduleService = scheduleService;
+            _logger = logger;
         }
 
         // Route: GET api/schedules
@@ -34,8 +36,10 @@ namespace NiceToDev.Schedules.Controllers
         [HttpGet("{id}")]
         public IActionResult Get( int id)
         {
+
             ScheduleDto scheduleDto = _scheduleService.GetScheduleById(id);
             return Ok(scheduleDto);
+
         }
 
         // Route: POST api/schedules/schedule
