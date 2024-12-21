@@ -35,7 +35,8 @@ namespace NiceToDev.Schedules.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok();
+            ScheduleDto schedule = _scheduleService.GetScheduleById(id);
+            return Ok(schedule);
         }
 
         // Route: POST api/schedules/schedule
