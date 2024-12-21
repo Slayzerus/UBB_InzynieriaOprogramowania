@@ -4,6 +4,10 @@ namespace NiceToDev.Schedules.Application.Models
 {
     public class ScheduleDto
     {
+        public ScheduleDto()
+        {
+             
+        }
         public ScheduleDto(string name)
         {
             Name = name;
