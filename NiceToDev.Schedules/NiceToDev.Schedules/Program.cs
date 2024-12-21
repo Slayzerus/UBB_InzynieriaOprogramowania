@@ -4,12 +4,19 @@ using NiceToDev.Schedules.Application.Services;
 using NiceToDev.Schedules.Database;
 using NiceToDev.Schedules.Domain.Interfaces;
 using NiceToDev.Schedules.Infrastructure.Repositories;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console() // Logowanie do konsoli
+    .WriteTo.File("bin/Logs/log-.txt", rollingInterval: RollingInterval.Day) // Logowanie do plików
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ScheduleContext>(
         options => options.UseSqlServer(
